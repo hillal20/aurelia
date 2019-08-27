@@ -1,0 +1,23 @@
+<template>
+  <h3>login here</h3>
+  <div if.bind="popup">Hilal is not authorized</div>
+  <div>
+    Name :
+    <input
+      placeholder="enter name"
+      name="password"
+      type="text"
+      value.bind="name"
+    />
+  </div>
+  <div>
+    password :
+    <input
+      placeholder="enter password "
+      name="password"
+      type="text"
+      value.bind="password"
+    />
+  </div>
+  <button click.trigger="login()">login</button>
+</template>

@@ -1,0 +1,18 @@
+<template bindable="user, firstName">
+  <require from="../../value-converters/date-format"></require>
+  ${firstName} ===> infosys
+  <div>
+    Name : ${user.name }
+  </div>
+  <div>
+    password : ${user.password }
+  </div>
+  <div>
+    comment : ${user.comment }
+  </div>
+  <div>
+    Date of Creation : ${user.createdAt | dateFormat }
+    <!--  we use dateFormat to represent DateFormatValueConversion -->
+  </div>
+  <slot></slot>
+</template>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%- htmlWebpackPlugin.options.metadata.title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base href="<%- htmlWebpackPlugin.options.metadata.baseUrl %>" />
+    <!-- imported CSS are concatenated and added automatically -->
+  </head>
+  <body aurelia-app="main"></body>
+  <script>
+    /////////////////////////
+    if (navigator.serviceWorker) {
+      console.log(" <==== service worker supported ====>");
+
+      window.addEventListener("aurelia-composed", () => {
+        console.log(" ######## window loaded ###### ");
+        navigator.serviceWorker
+          .register("./service-worker.js")
+          .then(reg => {
+            console.log(" ++++  SW registered +++++++ ", reg);
+          })
+          .catch(error => {
+            console.log(" +++ error in registering service worker ", error);
+          });
+      });
+    }
+  </script>
+</html>

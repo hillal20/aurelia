@@ -1,0 +1,30 @@
+<template>
+  <h3>this is Home page</h3>
+  <h2>${message}</h2>
+  <ul>
+    <li repeat.for="todo of todoList ">
+      <input type="checkbox" checked.bind="done" />
+      <span css="color:red; text-decoration:${done ? 'line-through':'none'}"
+        >${todo}</span
+      >
+      -------->
+      <button click.delegate="deleteItem(todo)">Delete</button>
+    </li>
+  </ul>
+  <input placeholder="enter your item" name="todoItem" value.bind="newTodo" />
+  <button click.delegate="addItem()">Add the item</button>
+
+  <div>
+    <h1>Frameworks</h1>
+    <ul>
+      <li repeat.for="framework of state.frameworks">${framework}</li>
+    </ul>
+  </div>
+  <div>
+    <h2>Users</h2>
+    <ul>
+      <li repeat.for="user of state.users">${user}</li>
+    </ul>
+  </div>
+  <button click.trigger="triggerSecond()">trigger second action</button>
+</template>

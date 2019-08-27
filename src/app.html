@@ -1,0 +1,48 @@
+<template>
+  <require from="./component/tagsBar/tags-bar"></require>
+  <tags-bar></tags-bar>
+  <h1>User : ${user}</h1>
+  <require from="./app.css"></require>
+  <div class="app">
+    <div>this is my main app</div>
+    <div>${message}</div>
+    <div>
+      <div>
+        <a
+          route-href="HomeRoute"
+          class="homeLink ${router.currentInstruction.config.name === 'HomeRoute'? 'active' : ''}"
+          if.bind="user !=='No User'"
+          >Home</a
+        >
+      </div>
+      <div>
+        <a route-href="aboutRoute">About</a>
+      </div>
+      <div><a route-href="postRoute; params.bind:{slug:'hila'}">Post</a></div>
+      <div>
+        <a route-href="usersRoute" if.bind="user !=='No User'">users</a>
+      </div>
+      <div>
+        <a route-href="loginRoute" if.bind="user==='No User'">Login Portal</a>
+      </div>
+      <div>
+        <a click.trigger="logout()" if.bind="user !=='No User'">LogoutPortal</a>
+      </div>
+    </div>
+    <button click.trigger="dAction()">dispatch Action</button>
+    <form submit.delegate="delegateAction()">
+      <button>Hello</button>
+    </form>
+    <router-view></router-view>
+  </div>
+  <br />
+  <div><h2>Create a tag</h2></div>
+  <div repeat.for="tag of tags">
+    <input type="checkbox" value.bind="tag" checked.bind="checkedTag" />
+    ${tag}
+  </div>
+  <input placeholder="enter your tag" value.bind="newTag" />
+  <button click.trigger="addTag()">add tag +</button>
+  <!--    this parts bellow is for workbox from google  -->
+  <ul id="workboxContainer"></ul>
+</template>

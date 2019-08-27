@@ -1,0 +1,14 @@
+<template bindable="name">
+  <h2>Users view is here</h2>
+  <require from = "../customElements/display-user.html"></require>
+  <div repeat.for="user of data">
+    <display-user first-name.bind="infosys" user.bind="user"> Here is an example of slotElement ${slotVariable} </display-user>  
+    <div>Slug : ${user.slug}</div>
+    <a route-href="route:userDetail;  params.bind :{slug:user.slug} ">
+      Veiw User &raquo;
+      </a>
+      <hr />
+    </div>
+  
+  </div>
+</template>

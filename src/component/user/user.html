@@ -1,0 +1,17 @@
+<template>
+  <h2 style=" border:2px solid red; width:20% ">User is here</h2>
+  <require from="../customElements/display-user.html"> </require>
+  <display-user name.bind="infosys" user.bind="user"></display-user>
+  <div>
+    <video class="video" autoplay style="width:20%"></video>
+    <video
+      class="remoteVideo"
+      autoplay
+      style="width:20%; background: black"
+    ></video>
+  </div>
+  <button onClick.bind="createOffer">create offer</button>
+  <button onClick.bind="offer">Offer</button>
+  <textarea class="textArea"> </textarea>
+  <button>set remote connection</button>
+</template>
